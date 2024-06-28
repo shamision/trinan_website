@@ -4,6 +4,7 @@ import { HeroSection } from "@/components/Sections/HeroSection/HeroSection";
 import { Services } from "@/components/Sections/Services/Services"
 import { Customers } from "@/components/Sections/Customers/Customers"
 import { Team } from "@/components/Sections/Team/Team";
+import { Contact } from "@/components/Sections/Contact/Contact";
 
 
 export default function Home() {
@@ -22,6 +23,8 @@ export default function Home() {
       <Customers />
 
       <Team />
+
+      <Contact />
     </div>
   );
 }

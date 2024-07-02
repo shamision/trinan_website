@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -17,11 +17,13 @@
   }
 }
 
+/* .container {
+  @apply px-[10px];
+} */
+
 body {
   color: rgb(var(--foreground-rgb));
-  .container {
-    @apply px-[120px]
-  }
+
   background: linear-gradient(
       to bottom,
       transparent,

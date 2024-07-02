@@ -1,17 +1,16 @@
 "use client"
 
-import Image from "next/image"
 import React from "react"
-import { Introduction } from "./Introduction"
 import { Form } from "./Form"
+import { Introduction } from "./Introduction"
 
-export const Contact = () =>{
-    return(
-        <section>
-            <div className="h-screen w-full bg-[#E7ECFF] flex container gap-[100px]">
-                <Introduction />
-                <Form />
-            </div>
-        </section>
-    )
+export const Contact = () => {
+  return (
+    <section>
+      <div className="h-screen w-full bg-[#E7ECFF] flex items-center  justify-between px-[90px]">
+        <Introduction />
+        <Form />
+      </div>
+    </section>
+  )
 }

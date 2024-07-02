@@ -17,9 +17,9 @@ export const AboutUs = () => {
             </div>
 
             <div className="grid md:grid-cols-3 grid-col-1 md:gap-x-[51px] mt-[53px]">
-                <DetailCard svg={<DetailCard1 />} title="Mission"/>
-                <DetailCard svg={<DetailCard2 />} title="Vision"/>
-                <DetailCard svg={<DetailCard3 />} title="Values"/>
+                <DetailCard svg={<DetailCard1 />} title="Mission" backContent="To streamline the tendering process, enabling businesses to discover and secure opportunities efficiently and effectively, fostering growth and innovation."/>
+                <DetailCard svg={<DetailCard2 />} title="Vision" backContent="To be the leading platform for tendering, revolutionizing the industry by providing unparalleled access to opportunities, fostering transparency, and driving economic development globally."/>
+                <DetailCard svg={<DetailCard3 />} title="Values" backContent="Our values are integrity, transparency, innovation, customer focus, excellence, collaboration, and sustainability, guiding every aspect of our tendering platform."/>
             </div>
 
         </section>

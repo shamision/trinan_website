@@ -5,6 +5,7 @@ import { Services } from "@/components/Sections/Services/Services"
 import { Customers } from "@/components/Sections/Customers/Customers"
 import { Team } from "@/components/Sections/Team/Team";
 import { Contact } from "@/components/Sections/Contact/Contact";
+import { Footer } from "@/components/Sections/Footer/Footer";
 
 
 export default function Home() {
@@ -25,6 +26,8 @@ export default function Home() {
       <Team />
 
       <Contact />
+
+      <Footer />
     </div>
   );
 }

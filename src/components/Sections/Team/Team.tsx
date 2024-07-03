@@ -8,7 +8,7 @@ export const Team = () => {
     <section className="h-screen w-full relative overflow-hidden bg-white px-[90px]">
       <div className="flex items-center justify-center top-0 w-full">
         <div className="w-[750px] mx-auto mt-[20px]">
-          <p className="text-customBlue font-bold text-[48px] text-center">
+          <p className="text-[#111B47] font-bold text-[48px] text-center">
             Our Team
           </p>
           <p className="text-[#505F98] text-center text-[18px] mt-[25px]">

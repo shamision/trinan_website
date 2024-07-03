@@ -6,10 +6,10 @@ import { DetailCard } from "./Card"
 
 export const AboutUs = () => {
   return (
-    <section className="h-screen w-screen relative overflow-hidden bg-white px-[90px]">
+    <section className="md:h-screen py-[40px] h-full w-screen relative overflow-hidden bg-white md:px-[90px] px-6">
       <div className="flex items-center top-0 w-full">
-        <div className="w-[765px] mx-auto mt-[40px]">
-          <p className="text-customBlue font-bold text-[48px] text-center">
+        <div className="w-[765px] mx-auto">
+          <p className="text-[#111B47] font-bold text-[48px] text-center">
             About Us
           </p>
           <p className="text-[#505F98] text-center text-[18px] mt-[25px]">
@@ -21,7 +21,7 @@ export const AboutUs = () => {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-3 grid-col-1 md:gap-x-[51px] mt-[53px]">
+      <div className="grid md:grid-cols-3 grid-col-1 gap-[51px] mt-[53px]">
         <DetailCard
           svg={<DetailCard1 />}
           title="Mission"

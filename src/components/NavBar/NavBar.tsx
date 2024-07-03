@@ -1,9 +1,10 @@
 import React from "react"
-import "../../app/globals.css"
+import MenuMobile from "../MenuMobile"
+// import "../../app/globals.css"
 
 export const NavBar = () => {
   return (
-    <nav className="px-[90px] flex py-10 text-customBlue items-center justify-between font-sans w-full">
+    <nav className="md:px-[90px] px-6 flex py-10 text-[#111B47] items-center justify-between font-sans w-full">
       <div className="space-x-1 flex items-center">
         <svg
           width={26}
@@ -26,10 +27,10 @@ export const NavBar = () => {
           />
         </svg>
 
-        <h1 className="text-xl text-customBlue font-bold">CLINAN</h1>
+        <h1 className="text-xl text-[#111B47] font-bold text-black">CLINAN</h1>
       </div>
 
-      <ul className="flex items-center space-x-[60px] text-[18px] font-semibold">
+      <ul className="md:flex hidden items-center space-x-[60px] text-[18px] font-semibold text-black">
         <li className=" ">Home</li>
         <li className="">Services</li>
         <li className="">About Us</li>
@@ -37,6 +38,10 @@ export const NavBar = () => {
         <li className="">Team</li>
         <li className="">Contact</li>
       </ul>
+
+      <div className="md:hidden block">
+        <MenuMobile />
+      </div>
     </nav>
   )
 }

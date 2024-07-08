@@ -11,7 +11,7 @@ interface LogoImageProps {
 export const CustomerLogo: React.FC<LogoImageProps> = ({ src, alt }) => {
     return (
         <div className="w-[240px]">
-            <Image src={src} alt={alt} width={240} height={50} />
+            <Image src={src} alt={alt} width={240} height={10} />
         </div>
     );
 };

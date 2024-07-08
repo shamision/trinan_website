@@ -5,8 +5,8 @@ import React from "react"
 
 export const Form = () => {
   return (
-    <div className="w-[600px] h-[630px] bg-white mt-[50px] rounded-[10px]">
-      <div className="ml-[112px] mt-[74px]">
+    <div className="w-[600px] h-[630px] bg-white mt-[50px] rounded-[10px] px-6 mb-10">
+      <div className="md:ml-[112px] mt-[74px]">
         <p className="text-[#111B47]">Your name</p>
         <div className="ml-[20px] mt-[30px] flex gap-5">
           <ContactName />
@@ -18,7 +18,7 @@ export const Form = () => {
           />
         </div>
       </div>
-      <div className="ml-[112px] mt-[40px]">
+      <div className="md:ml-[112px] mt-[40px]">
         <p className="text-[#111B47]">Your mail</p>
         <div className="ml-[20px] mt-[30px] flex gap-5">
           <ContactEmail />
@@ -30,7 +30,7 @@ export const Form = () => {
           />
         </div>
       </div>
-      <div className="ml-[112px] mt-[40px]">
+      <div className="md:ml-[112px] mt-[40px]">
         <p className="text-[#111B47]">Message</p>
         <input
           type="text"
@@ -40,7 +40,7 @@ export const Form = () => {
         />
       </div>
 
-      <button className="bg-customBlue w-[180px] h-[60px] rounded-md ml-[112px] mt-[130px]">
+      <button className="bg-[#111B47] w-[180px] h-[60px] rounded-md md:ml-[112px] mt-[130px]">
         Send Message
       </button>
     </div>

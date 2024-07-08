@@ -4,8 +4,8 @@ import React from "react"
 
 export const Introduction = () => {
   return (
-    <div className="w-[400px]">
-      <div className="mt-[50px]">
+    <div className="md:w-[400px] w-full">
+      <div className="mt-[50px] md:w-[400px] w-full">
         <h1 className="text-[#111B47] text-[48px] font-bold">
           Lets talk with our awesome team
         </h1>
@@ -14,7 +14,7 @@ export const Introduction = () => {
           can consult anytime
         </p>
       </div>
-      <div className="ml-5">
+      <div className="md:ml-5">
         <div className="flex mt-[30px] items-center">
           <svg
             width="42"

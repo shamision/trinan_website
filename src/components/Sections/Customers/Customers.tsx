@@ -6,7 +6,7 @@ import React from "react"
 export const Customers = () => {
   return (
     <section>
-      <div className="h-screen w-full bg-white">
+      <div className="md:h-screen h-full w-full bg-white px-6">
         <div className="flex items-center justify-center top-0 w-full">
           <div className="w-[400px] mt-[40px]">
             <p className="text-[#111B47] font-bold text-[48px] text-center">
@@ -18,7 +18,8 @@ export const Customers = () => {
             </p>
           </div>
         </div>
-        <div className="container ml-[120px] flex flex-wrap text-[#111B47] justify-center items-center gap-x-12 w-[1300px]">
+        <div className="flex flex-wrap text-[#111B47] items-center justify-center
+         gap-x-12 md:px-[300px] py-10">
           <CustomerLogo
             src="/csm_MINEMA_Logo__Blue_text-01_eb18105d60.png"
             alt="Logo Rura"

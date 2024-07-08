@@ -4,8 +4,8 @@ import React from "react"
 import { Member } from "./Member"
 
 export const Team = () => {
-  return (
-    <section className="h-screen w-full relative overflow-hidden bg-white px-[90px]">
+  return ( 
+    <section className="md:h-screen h-full w-full relative overflow-hidden bg-white md:px-[90px] px-8">
       <div className="flex items-center justify-center top-0 w-full">
         <div className="w-[750px] mx-auto mt-[20px]">
           <p className="text-[#111B47] font-bold text-[48px] text-center">
@@ -19,7 +19,7 @@ export const Team = () => {
           </p>
         </div>
       </div>
-      <div className="mt-[60px] grid grid-cols-3 place-items-center w-full">
+      <div className="mt-[60px] flex flex-wrap items-center justify-center gap-16 place-items-center w-full pb-20">
         <Member
           src="/pexels-divinetechygirl-1181519.jpg"
           alt="Member 1"

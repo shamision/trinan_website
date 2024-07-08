@@ -7,7 +7,7 @@ import { Introduction } from "./Introduction"
 export const Contact = () => {
   return (
     <section>
-      <div className="h-screen w-full bg-[#E7ECFF] flex items-center  justify-between px-[90px]">
+      <div className="md:h-screen h-full w-full bg-[#E7ECFF] flex flex-wrap items-center  md:justify-between justify-center md:px-[90px] px-6">
         <Introduction />
         <Form />
       </div>

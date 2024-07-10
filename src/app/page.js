@@ -12,19 +12,24 @@ export default function Home() {
     <div className="bg-white w-screen">
       <NavBar />
 
-      <HeroSection />
-
-      <Services />
-
-      <AboutUs />
-
-      <Customers />
-
-      
-
-      <Team />
-
-      <Contact />
+      <div id="hero-section">
+        <HeroSection />
+      </div>
+      <div id="services">
+        <Services />
+      </div>
+      <div id="about-us">
+        <AboutUs />
+      </div>
+      <div id="customers">
+        <Customers />
+      </div>
+      <div id="team">
+        <Team />
+      </div>
+      <div id="contact">
+        <Contact />
+      </div>
 
       <Footer />
     </div>

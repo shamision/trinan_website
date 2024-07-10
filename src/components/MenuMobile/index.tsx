@@ -3,8 +3,8 @@ import {
   SheetClose,
   SheetContent,
   SheetTrigger
-} from "@/components/ui/sheet"
-import React from "react"
+} from "@/components/ui/sheet";
+import React from "react";
 
 const MenuMobile = () => {
   return (
@@ -64,71 +64,107 @@ const MenuMobile = () => {
 
         <div className="pt-12">
           <ul className="flex flex-col space-y-6 w-full">
-            <li className="text-[20px] font-medium text-black py-2 px-2  bg-[#E7ECFF] rounded-md flex items-center justify-between">
-              Home
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width={32}
-                height={32}
-                fill="#000000"
-                viewBox="0 0 256 256"
-              >
-                <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z" />
-              </svg>
-            </li>
-            <li className="text-[20px] font-medium text-black py-2 px-2  bg-[#E7ECFF] rounded-md flex items-center justify-between">
-              Home
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width={32}
-                height={32}
-                fill="#000000"
-                viewBox="0 0 256 256"
-              >
-                <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z" />
-              </svg>
-            </li>
-            <li className="text-[20px] font-medium text-black py-2 px-2  bg-[#E7ECFF] rounded-md flex items-center justify-between">
-              Home
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width={32}
-                height={32}
-                fill="#000000"
-                viewBox="0 0 256 256"
-              >
-                <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z" />
-              </svg>
-            </li>
-            <li className="text-[20px] font-medium text-black py-2 px-2  bg-[#E7ECFF] rounded-md flex items-center justify-between">
-              Home
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width={32}
-                height={32}
-                fill="#000000"
-                viewBox="0 0 256 256"
-              >
-                <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z" />
-              </svg>
-            </li>
-            <li className="text-[20px] font-medium text-black py-2 px-2  bg-[#E7ECFF] rounded-md flex items-center justify-between">
-              Home
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width={32}
-                height={32}
-                fill="#000000"
-                viewBox="0 0 256 256"
-              >
-                <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z" />
-              </svg>
-            </li>
+            <SheetClose asChild>
+              <li className="text-[20px] font-medium text-black py-2 px-2 bg-[#E7ECFF] rounded-md flex items-center justify-between">
+                <a href="#hero-section" className="flex items-center justify-between w-full">
+                  Home
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={32}
+                    height={32}
+                    fill="#000000"
+                    viewBox="0 0 256 256"
+                  >
+                    <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z" />
+                  </svg>
+                </a>
+              </li>
+            </SheetClose>
+            <SheetClose asChild>
+              <li className="text-[20px] font-medium text-black py-2 px-2 bg-[#E7ECFF] rounded-md flex items-center justify-between">
+                <a href="#services" className="flex items-center justify-between w-full">
+                  Services
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={32}
+                    height={32}
+                    fill="#000000"
+                    viewBox="0 0 256 256"
+                  >
+                    <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z" />
+                  </svg>
+                </a>
+              </li>
+            </SheetClose>
+            <SheetClose asChild>
+              <li className="text-[20px] font-medium text-black py-2 px-2 bg-[#E7ECFF] rounded-md flex items-center justify-between">
+                <a href="#about-us" className="flex items-center justify-between w-full">
+                  About Us
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={32}
+                    height={32}
+                    fill="#000000"
+                    viewBox="0 0 256 256"
+                  >
+                    <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z" />
+                  </svg>
+                </a>
+              </li>
+            </SheetClose>
+            <SheetClose asChild>
+              <li className="text-[20px] font-medium text-black py-2 px-2 bg-[#E7ECFF] rounded-md flex items-center justify-between">
+                <a href="#customers" className="flex items-center justify-between w-full">
+                  Customers
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={32}
+                    height={32}
+                    fill="#000000"
+                    viewBox="0 0 256 256"
+                  >
+                    <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z" />
+                  </svg>
+                </a>
+              </li>
+            </SheetClose>
+            <SheetClose asChild>
+              <li className="text-[20px] font-medium text-black py-2 px-2 bg-[#E7ECFF] rounded-md flex items-center justify-between">
+                <a href="#team" className="flex items-center justify-between w-full">
+                  Team
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={32}
+                    height={32}
+                    fill="#000000"
+                    viewBox="0 0 256 256"
+                  >
+                    <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z" />
+                  </svg>
+                </a>
+              </li>
+            </SheetClose>
+            <SheetClose asChild>
+              <li className="text-[20px] font-medium text-black py-2 px-2 bg-[#E7ECFF] rounded-md flex items-center justify-between">
+                <a href="#contact" className="flex items-center justify-between w-full">
+                  Contact
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={32}
+                    height={32}
+                    fill="#000000"
+                    viewBox="0 0 256 256"
+                  >
+                    <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z" />
+                  </svg>
+                </a>
+              </li>
+            </SheetClose>
           </ul>
         </div>
       </SheetContent>
     </Sheet>
-  )
-}
+  );
+};
 
-export default MenuMobile
+export default MenuMobile;

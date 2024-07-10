@@ -4,17 +4,17 @@ import { FooterLogo } from "@/components/Svgs"
 import React from "react"
 
 export const Footer = () => {
-  return (
-    <section className="h-full w-full bg-[#111B47] px-[90px]">
-      <div className="flex items-center justify-between pt-[110px] h-3/4">
-        <div className="w-[500px] mt-10">
+  return (  
+    <section className="md:h-[500px] h-full w-full bg-[#111B47] md:px-[90px] px-6 pb-10">
+      <div className="flex flex-wrap items-center justify-between md:pt-[90px] pt-10">
+        <div className="w-[300px] mt-10">
           <FooterLogo />
           <p className="font-extrabold text-[36px] pt-7">
             Grow your business with us
           </p>
         </div>
 
-        <div className="grid grid-cols-3 gap-x-10">
+        <div className=" gap-x-32 flex flex-wrap gap-y-10 pt-10">
           <ul className="grid gap-y-6 text-[20px]">
             <li className="font-semibold">Home</li>
             <li>Services</li>
@@ -37,7 +37,7 @@ export const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className="h-1/4 flex items-center justify-center">
+      <div className="pt-16 flex items-center justify-center">
         <p>2024 Shami Sion. All Rights Reserved</p>
       </div>
     </section>

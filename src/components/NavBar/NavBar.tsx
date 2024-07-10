@@ -27,16 +27,16 @@ export const NavBar = () => {
           />
         </svg>
 
-        <h1 className="text-xl text-[#111B47] font-bold text-black">CLINAN</h1>
+        <h1 className="text-xl text-[#111B47] font-bold">CLINAN</h1>
       </div>
 
-      <ul className="md:flex hidden items-center space-x-[60px] text-[18px] font-semibold text-black">
-        <li className=" ">Home</li>
-        <li className="">Services</li>
-        <li className="">About Us</li>
-        <li className="">Customers</li>
-        <li className="">Team</li>
-        <li className="">Contact</li>
+      <ul className="md:flex hidden items-center space-x-[60px] text-[18px] font-semibold">
+        <li><a href="#hero-section" className="hover:underline">Home</a></li>
+        <li><a href="#services" className="hover:underline">Services</a></li>
+        <li><a href="#about-us" className="hover:underline">About Us</a></li>
+        <li><a href="#customers" className="hover:underline">Customers</a></li>
+        <li><a href="#team" className="hover:underline">Team</a></li>
+        <li><a href="#contact" className="hover:underline">Contact</a></li>
       </ul>
 
       <div className="md:hidden block">

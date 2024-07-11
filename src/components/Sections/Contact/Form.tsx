@@ -5,7 +5,7 @@ import React from "react"
 
 export const Form = () => {
   return (
-    <div className="w-[600px] h-[630px] bg-white mt-[50px] rounded-[10px] px-6 mb-10">
+    <div className="w-[600px] h-[600px] bg-white mt-[100px] rounded-[10px] px-6 mb-10">
       <div className="md:ml-[112px] mt-[74px]">
         <p className="text-[#111B47]">Your name</p>
         <div className="ml-[20px] mt-[30px] flex gap-5">
@@ -40,7 +40,7 @@ export const Form = () => {
         />
       </div>
 
-      <button className="bg-[#111B47] w-[180px] h-[60px] rounded-md md:ml-[112px] mt-[130px]">
+      <button className="bg-[#111B47] w-[180px] h-[60px] rounded-md md:ml-[112px] mt-[100px]">
         Send Message
       </button>
     </div>

@@ -6,13 +6,13 @@ import { DetailCard } from "./Card"
 
 export const AboutUs = () => {
   return (
-    <section className="md:h-screen py-[40px] h-full w-screen relative overflow-hidden bg-white md:px-[90px] px-6">
-      <div className="flex items-center top-0 w-full">
+    <section className="md:h-screen py-[20px] h-full w-screen relative overflow-hidden bg-white md:px-[90px] px-6">
+      <div className="flex items-center top-0 w-full pt-16">
         <div className="w-[765px] mx-auto">
           <p className="text-[#111B47] font-bold text-[48px] text-center">
             About Us
           </p>
-          <p className="text-[#505F98] text-center text-[18px] mt-[25px]">
+          <p className="text-[#505F98] text-center text-[18px]">
             We offer a comprehensive range of tendering services to help
             businesses secure lucrative contracts. Our expertise ensures that
             your bids are competitive, compliant, and strategically crafted to
@@ -21,7 +21,7 @@ export const AboutUs = () => {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-3 grid-col-1 gap-[51px] mt-[53px]">
+      <div className="grid md:grid-cols-3 grid-col-1 gap-[51px] mt-[20px]">
         <DetailCard
           svg={<DetailCard1 />}
           title="Mission"

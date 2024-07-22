@@ -8,7 +8,7 @@ export const NavBar = () => {
   const isScrolled = useScroll();
 
   return (
-    <nav className={`md:px-[90px] px-6 flex py-10 text-[#111B47] items-center justify-between font-sans w-full ${isScrolled ? 'fixed top-0 z-50 bg-transparent' : ''}`}>
+    <nav className={`md:px-[90px] px-6 flex py-10 text-[#111B47] items-center justify-between font-sans w-full ${isScrolled ? 'fixed top-0 z-50 bg-white' : ''}`}>
       <div className="space-x-1 flex items-center">
         <svg
           width={26}

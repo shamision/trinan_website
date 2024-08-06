@@ -1,14 +1,18 @@
-"use client";
+"use client"
 
-import React from "react";
-import MenuMobile from "../MenuMobile";
-import useScroll from "./useScroll";
+import React from "react"
+import MenuMobile from "../MenuMobile"
+import useScroll from "./useScroll"
 
 export const NavBar = () => {
-  const isScrolled = useScroll();
+  const isScrolled = useScroll()
 
   return (
-    <nav className={`md:px-[90px] px-6 flex py-8 text-[#111B47] items-center justify-between font-sans w-full ${isScrolled ? 'fixed top-0 z-50 bg-white' : ''}`}>
+    <nav
+      className={
+        "fixed top-0 z-50 md:px-[90px] px-6 flex py-8 text-[#111B47] items-center justify-between font-sans w-full bg-white"
+      }
+    >
       <div className="space-x-1 flex items-center">
         <svg
           width={26}
@@ -35,17 +39,41 @@ export const NavBar = () => {
       </div>
 
       <ul className="md:flex hidden items-center space-x-[60px] text-[18px] font-semibold">
-        <li><a href="#hero-section" className="hover:underline">Home</a></li>
-        <li><a href="#services" className="hover:underline">Services</a></li>
-        <li><a href="#about-us" className="hover:underline">About Us</a></li>
-        <li><a href="#customers" className="hover:underline">Customers</a></li>
-        <li><a href="#team" className="hover:underline">Team</a></li>
-        <li><a href="#contact" className="hover:underline">Contact</a></li>
+        <li>
+          <a href="#hero-section" className="hover:underline">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="#services" className="hover:underline">
+            Services
+          </a>
+        </li>
+        <li>
+          <a href="#about-us" className="hover:underline">
+            About Us
+          </a>
+        </li>
+        <li>
+          <a href="#customers" className="hover:underline">
+            Customers
+          </a>
+        </li>
+        <li>
+          <a href="#team" className="hover:underline">
+            Team
+          </a>
+        </li>
+        <li>
+          <a href="#contact" className="hover:underline">
+            Contact
+          </a>
+        </li>
       </ul>
 
       <div className="md:hidden block">
         <MenuMobile />
       </div>
     </nav>
-  );
-};
+  )
+}

@@ -4,7 +4,7 @@ import React from "react"
 import { Member } from "./Member"
 
 export const Team = () => {
-  return ( 
+  return (
     <section className="md:h-screen h-full w-full relative overflow-hidden bg-white md:px-[90px] px-8 py-[20px]">
       <div className="flex items-center justify-center top-0 w-full">
         <div className="w-[750px] mx-auto pt-16">
@@ -19,7 +19,7 @@ export const Team = () => {
           </p>
         </div>
       </div>
-      <div className="mt-[30px] flex flex-wrap items-center justify-between gap-16 place-items-center w-full pb-20 md:px-12">
+      <div className="mt-[30px] flex flex-wrap items-center justify-between gap-16 place-items-center w-full pb-20 md:px-12 px-0">
         <Member
           src="/pexels-divinetechygirl-1181519.jpg"
           alt="Member 1"

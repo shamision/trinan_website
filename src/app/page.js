@@ -9,7 +9,7 @@ import { Team } from "@/components/Sections/Team/Team"
 
 export default function Home() {
   return (
-    <div className="bg-white w-screen">
+    <div className="bg-white w-screen overflow-x-hidden">
       <NavBar />
 
       <div id="hero-section">

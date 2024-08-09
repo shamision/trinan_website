@@ -60,15 +60,15 @@ export const Team = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const handlePrev = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1)
-    }
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? members.length - 3 : prevIndex - 1
+    )
   }
 
   const handleNext = () => {
-    if (currentIndex + 3 < members.length) {
-      setCurrentIndex(currentIndex + 1)
-    }
+    setCurrentIndex((prevIndex) =>
+      prevIndex + 3 >= members.length ? 0 : prevIndex + 1
+    )
   }
 
   return (
@@ -87,13 +87,11 @@ export const Team = () => {
         </div>
       </div>
       <div className="relative mt-[30px] flex items-center justify-center w-full pb-20 md:px-12">
-        {currentIndex > 0 && (
-          <div onClick={() =>handlePrev()} className="rounded-full w-14 h-14 select-none absolute md:top-24 left-0 bottom-0 flex items-center justify-center ">
-            <button  className="text-[#111B47] font-bold text-[24px] p-2">
-              &lt;
-            </button>
-          </div>
-        )}
+        <div onClick={handlePrev} className="rounded-full w-14 h-14 select-none absolute md:top-24 left-0 bottom-0 flex items-center justify-center">
+          <button className="text-[#111B47] font-bold text-[24px] p-2">
+            &lt;
+          </button>
+        </div>
         <div className="flex flex-wrap items-center justify-center gap-14 place-items-center w-full select-none">
           {members.slice(currentIndex, currentIndex + 3).map((member, index) => (
             <Member
@@ -106,13 +104,11 @@ export const Team = () => {
             />
           ))}
         </div>
-        {currentIndex + 3 < members.length && (
-          <div onClick={() =>handleNext()} className="rounded-full w-14 h-14 select-none absolute md:top-24 right-0 bottom-0 flex items-center justify-center">
-            <button  className="text-[#111B47] font-bold text-[24px] p-2">
-              &gt;
-            </button>
-          </div>
-        )}
+        <div onClick={handleNext} className="rounded-full w-14 h-14 select-none absolute md:top-24 right-0 bottom-0 flex items-center justify-center">
+          <button className="text-[#111B47] font-bold text-[24px] p-2">
+            &gt;
+          </button>
+        </div>
       </div>
     </section>
   )

@@ -1,9 +1,9 @@
 "use client"
 
-import React from "react"
+import React, { ReactNode } from "react"
 
 interface ServiceProps {
-  icon: string
+  icon: ReactNode
   title: string
   description: string
 }
@@ -14,27 +14,14 @@ export const Service: React.FC<ServiceProps> = ({
   description
 }) => {
   return (
-    <div className="w-[390px]">
+    <div className="w-[380px]">
       <div className="flex md:flex-row flex-col items-center md:space-y-0 space-y-4">
         {icon && (
-          <svg
-            width={64}
-            height={64}
-            viewBox="0 0 64 64"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g clipPath="url(#clip0_22_5)">
-              <path d={icon} fill="#111B47" />
-            </g>
-            <defs>
-              <clipPath id="clip0_22_5">
-                <rect width={64} height={63.6114} fill="white" />
-              </clipPath>
-            </defs>
-          </svg>
+          <div className="w-[50px] h-[50px]">
+            {icon}
+          </div>
         )}
-        <h1 className="text-[#111B47] font-bold md:ml-[16px] ml-0 text-[24px]">
+        <h1 className="text-[#111B47] font-bold md:ml-[16px] ml-0 text-[24px] text-center md:text-start">
           {title}
         </h1>
       </div>

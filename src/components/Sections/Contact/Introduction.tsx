@@ -50,7 +50,7 @@ export const Introduction = () => {
           </svg>
           <div className="ml-[20px]">
             <h1 className="text-[#111B47] text-[24px] font-bold">Call</h1>
-            <p className="text-[#505F98] text-[18px]">0784541455</p>
+            <p className="text-[#505F98] text-[18px]">+250783217556</p>
           </div>
         </div>
         <div className="flex mt-[30px] items-center">
@@ -82,7 +82,7 @@ export const Introduction = () => {
           </svg>
           <div className="ml-[20px]">
             <h1 className="text-[#111B47] text-[24px] font-bold">Email</h1>
-            <p className="text-[#505F98] text-[18px]">loremipsum@gmail.com</p>
+            <p className="text-[#505F98] text-[18px]">tradingclinan@gmail.com</p>
           </div>
         </div>
         <div className="flex mt-[30px] items-center">

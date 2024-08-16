@@ -1,37 +1,41 @@
-"use client"
+"use client";
 
-import { FooterLogo } from "@/components/Svgs"
-import React from "react"
+import { FooterLogo } from "@/components/Svgs";
+import React from "react";
+import { MdEmail } from "react-icons/md";
+import { ImFacebook } from "react-icons/im";
+import { FaInstagramSquare } from "react-icons/fa";
+import { BsTwitterX } from "react-icons/bs";
 
 export const Footer = () => {
   return (
     <section>
-      <div className="md:h-[500px] h-full w-full bg-[#111B47] md:px-[90px] px-6 pb-10">
-        <div className="flex flex-wrap items-center justify-between md:pt-[90px] pt-10">
-          <div className="w-[300px] mt-10">
+      <div className="w-full bg-[#111B47] md:px-[90px] px-6 pb-10">
+        <div className="container flex flex-col md:flex-row flex-wrap items-center justify-between md:py-[90px] pt-10 text-white">
+          <div className="md:w-[300px] w-full mt-10 md:mb-0 mb-6 text-center md:text-left">
             <FooterLogo />
-            <p className="font-extrabold text-[26px] pt-7">
+            <p className="text-[18px]">
               Grow your business with us
             </p>
           </div>
 
-          <div className=" gap-x-32 flex flex-wrap gap-y-10 pt-10">
-            <ul className="grid gap-y-6 text-[20px]">
-              <li className="font-semibold">Home</li>
+          <div className="flex flex-col md:flex-row gap-x-28 gap-y-10 pt-10 text-center md:text-left">
+            <ul className="grid gap-y-6 text-[18px] text-center">
+              <li className="font-bold text-[28px] border-b">Home</li>
               <li>Services</li>
               <li>About Us</li>
               <li>Customers</li>
             </ul>
 
-            <ul className="grid gap-y-6 text-[20px]">
-              <li className="font-semibold">Services</li>
+            <ul className="grid gap-y-6 text-[18px] text-center">
+              <li className="font-bold text-[28px] border-b">Services</li>
               <li>Tender writing</li>
               <li>Bid Management</li>
               <li>Post-tender analysis</li>
             </ul>
 
-            <ul className="grid gap-y-6 text-[20px]">
-              <li className="font-semibold">About</li>
+            <ul className="grid gap-y-6 text-[18px] text-center">
+              <li className="font-bold text-[28px] border-b">About</li>
               <li>Team</li>
               <li>Contact Us</li>
               <li>Career</li>
@@ -40,66 +44,44 @@ export const Footer = () => {
         </div>
       </div>
 
+      <div className="w-full bg-[#E7ECFF]">
+        <div className="container py-4 flex items-center justify-between">
 
-      <div className="w-full bg-[#E7ECFF] py-2 px-12 flex md:flex-row flex-col md:space-y-2 space-y-4 items-center md:justify-between justify-center">
-        <p className="text-[#111B47] font-medium text-[12px]">2024 CLINAN. All Rights Reserved</p>
+          <p className="text-[#111B47] font-medium text-[14px]">
+            2024 CLINAN. All Rights Reserved
+          </p>
 
-        <ul className="flex items-center justify-center space-x-4 space-y-2 md:space-y-0 text-[12px] font-medium text-[#111B47]">
+          <ul className="flex flex-col md:flex-row md:items-center text-[14px] gap-2 md:gap-8 font-medium text-[#111B47]">
+            <li className="flex items-center">
+              <a href="mailto:tradingclinan@gmail.com" className="flex items-center gap-1">
+                <MdEmail/>
+                tradingclinan@gmail.com
+              </a>
+            </li>
 
-          <li className="flex items-center text-[#111B47] font-medium leading-5">
-            <a href={`mailto:tradingclinan@gmail.com`} className="flex items-center space-x-0">
-              <svg width="47" height="14" viewBox="0 0 117 84" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M80.3595 41.874L110.346 13.818V69.6098L80.3595 41.874ZM41.7202 46.6252L52.2503 56.469C53.9029 57.981 56.0576 58.8945 58.4123 58.8945H58.4951H58.5585C60.918 58.8945 63.0727 57.9758 64.7449 56.4533L64.7302 56.4637L75.2602 46.62L107.27 76.2247H9.72563L41.7202 46.6252ZM9.68175 7.16625H107.328L60.4256 51.0352C59.9006 51.4889 59.2463 51.7337 58.5731 51.7282H58.5049H58.4415C57.7661 51.7334 57.1098 51.4867 56.5841 51.03L56.589 51.0352L9.68175 7.16625ZM6.65438 13.8127L36.6356 41.8688L6.65438 69.5887V13.8127ZM111.954 0.9975C110.784 0.3675 109.41 0 107.952 0H9.06262C7.65028 0.0060208 6.25791 0.359789 4.992 1.03425L5.04562 1.008C3.53372 1.81378 2.26052 3.05779 1.36917 4.60015C0.477812 6.14251 0.00365313 7.92207 0 9.73875L0 73.6418C0.00258084 76.228 0.957705 78.7074 2.6558 80.5362C4.3539 82.3649 6.65628 83.3935 9.05775 83.3962H107.937C110.339 83.3935 112.641 82.3649 114.339 80.5362C116.037 78.7074 116.993 76.228 116.995 73.6418V9.73875C116.995 5.922 114.952 2.6145 111.979 1.02375L111.925 0.9975H111.954Z" fill="black" />
-              </svg>
+            <li className="flex items-center">
+              <a href="" className="flex items-center gap-1">
+                <ImFacebook/>
+                clinan
+              </a>
+            </li>
 
+            <li className="flex items-center">
+              <a href="" className="flex items-center gap-1">
+                <BsTwitterX/>
+                clinan
+              </a>
+            </li>
 
-              tradingclinan@gmail.com
-            </a>
-
-          </li>
-
-          <li className="flex items-center text-[#111B47] font-medium leading-5">
-            <a href="" className="flex items-center space-x-3">
-              <svg width="24" height="15" viewBox="0 0 114 105" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M56.9847 25.5624C40.8003 25.5624 27.7387 37.5931 27.7387 52.5C27.7387 67.4069 40.8003 79.4376 56.9847 79.4376C73.1691 79.4376 86.2306 67.4069 86.2306 52.5C86.2306 37.5931 73.1691 25.5624 56.9847 25.5624ZM56.9847 70.0075C46.5183 70.0075 37.9769 62.1403 37.9769 52.5C37.9769 42.8597 46.5183 34.9925 56.9847 34.9925C67.4511 34.9925 75.9924 42.8597 75.9924 52.5C75.9924 62.1403 67.4511 70.0075 56.9847 70.0075ZM87.4284 18.1812C83.6497 18.1812 80.5982 20.9918 80.5982 24.4723C80.5982 27.9528 83.6497 30.7634 87.4284 30.7634C91.2072 30.7634 94.2587 27.9659 94.2587 24.4723C94.2598 23.6459 94.0839 22.8273 93.741 22.0636C93.3982 21.2998 92.8951 20.6059 92.2607 20.0215C91.6262 19.4371 90.8728 18.9738 90.0436 18.658C89.2144 18.3422 88.3257 18.1802 87.4284 18.1812ZM113.994 52.5C113.994 45.2501 114.065 38.0659 113.623 30.8291C113.181 22.4234 111.099 14.9634 104.426 8.81674C97.738 2.65695 89.6529 0.752537 80.5269 0.345387C72.6557 -0.061763 64.8558 0.00390659 56.9989 0.00390659C49.1278 0.00390659 41.3279 -0.061763 33.471 0.345387C24.345 0.752537 16.2457 2.67008 9.57228 8.81674C2.88463 14.9765 0.817025 22.4234 0.374985 30.8291C-0.0670557 38.079 0.00424137 45.2632 0.00424137 52.5C0.00424137 59.7368 -0.0670557 66.9341 0.374985 74.1709C0.817025 82.5766 2.89889 90.0366 9.57228 96.1833C16.2599 102.343 24.345 104.247 33.471 104.655C41.3422 105.062 49.142 104.996 56.9989 104.996C64.8701 104.996 72.67 105.062 80.5269 104.655C89.6529 104.247 97.7522 102.33 104.426 96.1833C111.113 90.0235 113.181 82.5766 113.623 74.1709C114.079 66.9341 113.994 59.7499 113.994 52.5ZM101.445 83.4697C100.404 85.86 99.1496 87.6462 97.1391 89.485C95.1285 91.3369 93.2035 92.4926 90.6083 93.4514C83.1078 96.1964 65.2979 95.5791 56.9847 95.5791C48.6715 95.5791 30.8473 96.1964 23.3468 93.4646C20.7516 92.5058 18.8124 91.35 16.816 89.4981C14.8055 87.6463 13.5506 85.8732 12.5097 83.4828C9.54376 76.5613 10.214 60.1571 10.214 52.5C10.214 44.843 9.54376 28.4256 12.5097 21.5172C13.5506 19.1268 14.8055 17.3406 16.816 15.5019C18.8266 13.6631 20.7516 12.4942 23.3468 11.5354C30.8473 8.8036 48.6715 9.42089 56.9847 9.42089C65.2979 9.42089 83.1221 8.8036 90.6225 11.5354C93.2177 12.4942 95.157 13.65 97.1533 15.5019C99.1639 17.3538 100.419 19.1268 101.46 21.5172C104.426 28.4256 103.755 44.843 103.755 52.5C103.755 60.1571 104.426 76.5613 101.445 83.4697Z" fill="black" />
-              </svg>
-
-
-              <p>clinan</p>
-            </a>
-
-          </li>
-
-
-          <li className="flex items-center text-[#111B47] font-medium leading-5">
-            <a href="" className="flex items-center space-x-3">
-              <svg width="10" height="14" viewBox="0 0 30 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M28.5 1.16675H21C17.6848 1.16675 14.5054 2.52761 12.1612 4.94995C9.81696 7.3723 8.5 10.6577 8.5 14.0834V21.8334H1V32.1667H8.5V52.8334H18.5V32.1667H26L28.5 21.8334H18.5V14.0834C18.5 13.3983 18.7634 12.7412 19.2322 12.2567C19.7011 11.7723 20.337 11.5001 21 11.5001H28.5V1.16675Z" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-
-
-              <p>clinan</p>
-            </a>
-
-          </li>
-
-          <li className="flex items-center text-[#111B47] font-medium leading-5">
-            <a href="" className="flex items-center space-x-3">
-              <svg width="10" height="10" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M45.6774 0.978516H54.5708L35.1408 24.7193L58 57.0188H40.1022L26.0855 37.4268L10.0437 57.0188H1.1455L21.9288 31.6246L0 0.981099H18.3522L31.0228 18.8888L45.6774 0.978516ZM42.5575 51.3303H47.4851L15.6745 6.36993H10.3868L42.5575 51.3303Z" fill="black" />
-              </svg>
-
-
-
-              <p>clinan</p>
-            </a>
-
-          </li>
-
-
-
-        </ul>
+            <li className="flex items-center">
+              <a href="" className="flex items-center gap-1">
+                <FaInstagramSquare/>
+                clinan
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
-  )
-}
+  );
+};

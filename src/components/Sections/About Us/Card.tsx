@@ -27,10 +27,10 @@ export const DetailCard: React.FC<DetailCardProps> = ({
           </div>
         </div>
         <div className="absolute w-full h-full md:backface-hidden bg-[#111B47] rounded-[5px] shadow-xl flex flex-col items-center justify-center space-y-6 md:rotate-y-180 px-12 text-center">
-          <h1 className="text-white text-[48px] font-bold ml-[20px] block">
-            {title}
+          <h1 className="text-white text-[38px] font-bold ml-[20px] block">
+            Our {title}
           </h1>
-          <p>{backContent}</p>
+          <p className="text-white">{backContent}</p>
         </div>
       </div>
     </div>

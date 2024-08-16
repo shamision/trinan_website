@@ -1,33 +1,54 @@
 "use client"
 
 import Image from "next/image"
-import React from "react"
+import React, { useState } from "react"
+import { Form } from "../Contact/Form"
 
 export const HeroSection = () => {
-  return (
-    <section className="h-screen w-full relative overflow-hidden">
-      <Image
-        src={"/handShake.jpg"}
-        alt="Image"
-        fill
-        style={{
-          objectFit: "cover"
-        }}
-      />
+  const [isFormVisible, setIsFormVisible] = useState(false) // State to manage form visibility
 
-      <div className="absolute flex items-center justify-center z-30 h-full w-full bg-[#E7ECFF]/80 md:px-0 px-6">
-        <div className="md:w-[859px] w-full">
-          <p className="text-[#111B47] font-bold text-[48px] text-center">
-            Your Trusted Partner in Seamless Tender Management
-          </p>
-          <p className="text-[#505F98] text-center text-[18px] md:px-32 px-0 md:pt-[25px] pt-20 leading-9 w-full">
-            Dedicated to optimizing your tendering process, we provide
-            end-to-end services that cover all aspects of tender management. Our
-            innovative approach and industry expertise help you achieve your
-            procurement goals with ease.
-          </p>
+  const handleGetInTouchClick = () => {
+    setIsFormVisible(true)
+  }
+
+  const closeForm = () => {
+    setIsFormVisible(false)
+  }
+  return (
+    <>
+      <section className="h-screen w-full relative overflow-hidden">
+        <Image
+          src={"/Const.jpg"}
+          alt="Image"
+          fill
+          style={{
+            objectFit: "cover"
+          }}
+        />
+
+        <div className="absolute flex items-center justify-center z-30 h-full w-full bg-black bg-opacity-70 md:px-0 px-6">
+          <div className="container flex flex-col gap-8">
+            <h1 className="font-bold text-4xl md:text-5xl text-white w-full md:w-9/12 leading-9">
+              Your Trusted Partner in Seamless Supply of Engineering Equipment
+            </h1>
+            <p className="text-md md:text-lg w-full md:w-2/4 text-white leading-6">
+            The only source for top-tier engineering materials.
+            <br/>reach out to us today to secure the tools and materials you need for your project's success.
+            </p>
+            <button
+                onClick={handleGetInTouchClick}
+                className="bg-blue-900 w-fit text-white text-lg md:text-xl font-bold py-2 px-4 rounded-md"
+              >
+                Get in Touch
+              </button>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      {isFormVisible && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <Form closeForm={closeForm}/>
+        </div>
+      )}
+    </>
   )
 }

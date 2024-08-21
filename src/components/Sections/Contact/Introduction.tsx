@@ -4,8 +4,8 @@ import React from "react"
 
 export const Introduction = () => {
   return (
-    <div className="md:w-[400px] w-full">
-      <div className="mt-[50px] md:w-[400px] w-full">
+    <div className="container py-36">
+      <div>
         <h1 className="text-[#111B47] text-[48px] font-bold">
           Lets talk with our awesome team
         </h1>

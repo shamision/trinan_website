@@ -6,17 +6,16 @@ import React from "react"
 
 export const Services = () => {
   return (
-    <section className="h-full w-full relative py-[20px] overflow-hidden bg-white md:px-[90px] px-6">
+    <section className="container">
       <div className="flex items-center justify-center mt-16 w-full">
-        <div className="w-[765px] mx-auto ">
+        <div className="w-3/4 mx-auto ">
           <p className="text-[#111B47] font-bold text-[48px] text-center">
-            Tendering Services
+            Our Services
           </p>
           <p className="text-[#505F98] text-center text-[18px] mt-[15px]">
-            We offer a comprehensive range of tendering services to help
-            businesses secure lucrative contracts. Our expertise ensures that
-            your bids are competitive, compliant, and strategically crafted to
-            meet the highest standards.
+          We provide a wide array of engineering equipment to meet the diverse needs of your projects. 
+          Our products are carefully selected to ensure quality, durability, and efficiency, 
+          empowering your business to excel in even the most demanding environments.
           </p>
         </div>
       </div>

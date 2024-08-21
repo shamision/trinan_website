@@ -2,6 +2,7 @@ import { NavBar } from "@/components/NavBar/NavBar"
 import { AboutUs } from "@/components/Sections/About Us/AboutUs"
 import { Contact } from "@/components/Sections/Contact/Contact"
 import { Customers } from "@/components/Sections/Customers/Customers"
+import Testimonials from "@/components/Sections/Customers/Testimonials"
 import { Footer } from "@/components/Sections/Footer/Footer"
 import { HeroSection } from "@/components/Sections/HeroSection/HeroSection"
 import ServicePage from "@/components/Sections/Services/ServicePage"
@@ -24,6 +25,9 @@ export default function Home() {
       </div>
       <div id="customers">
         <Customers />
+      </div>
+      <div id="testimonials">
+        <Testimonials />
       </div>
       <div id="team">
         <Team />

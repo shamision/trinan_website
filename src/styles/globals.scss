@@ -49,3 +49,26 @@ body {
     transform: rotateY(180deg);
   }
 }
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.logos {
+  white-space: nowrap;
+}
+
+.logos-slide {
+  display: inline-flex;
+  animation: 15s slide linear infinite;
+}
+
+.logos-slide img {
+  border-right: 1px solid rgb(103, 115, 126) !important;
+}
+

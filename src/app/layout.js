@@ -1,7 +1,10 @@
 import "@/styles/globals.scss"
-import { Inter } from "next/font/google"
+import { Roboto } from "next/font/google"
 
-const inter = Inter({ subsets: ["latin"] })
+const roboto = Roboto({
+  subsets: ["latin"], // Correct subset
+  weight: ["400", "700"], // Specify the weights you want to use
+})
 
 export const metadata = {
   title: "CLINAN",
@@ -11,7 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={roboto.className}>
         <main>{children}</main>
       </body>
     </html>

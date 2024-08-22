@@ -1,18 +1,21 @@
-"use client"
+"use client";
 
-import React, { ReactNode } from "react"
+import React, { ReactNode } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
+import Link from 'next/link';
 
 interface ServiceProps {
-  icon: ReactNode
-  title: string
-  description: string
+  icon: ReactNode;
+  title: string;
+  description: string;
+  serviceId: string;  // Add serviceId prop to navigate to the correct route
 }
 
 export const Service: React.FC<ServiceProps> = ({
   icon,
   title,
-  description
+  description,
+  serviceId,
 }) => {
   return (
     <div className="w-[380px] bg-[#E7ECFF] flex flex-col justify-between rounded-lg px-12 py-12">
@@ -29,12 +32,14 @@ export const Service: React.FC<ServiceProps> = ({
       <div className="text-[#505F98] text-[18px] mt-[12px] md:text-start text-center">
         {description}
       </div>
-      <div
-        className="flex items-center w-fit justify-center self-end gap-2 px-5 py-1 mt-7 rounded-xl hover:bg-[#b5bfeb]"
-          >
+      <Link href={`/services/${serviceId}`}>
+        <div
+          className="flex items-center w-fit justify-center self-end gap-2 px-5 py-1 mt-7 rounded-xl hover:bg-[#b5bfeb]"
+        >
           <p className="text-[#111B47] font-bold">Read More</p>
           <FaArrowRightLong />
-      </div>
+        </div>
+      </Link>
     </div>
-  )
-}
+  );
+};

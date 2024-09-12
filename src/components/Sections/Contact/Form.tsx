@@ -1,6 +1,6 @@
 "use client"
 
-import { ContactEmail, ContactName } from "@/components/Svgs"
+import { ContactEmail, ContactName } from "../../Svgs"
 import React from "react"
 import { IoCall } from "react-icons/io5";
 

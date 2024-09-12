@@ -1,6 +1,6 @@
 "use client";
 
-import { FooterLogo } from "@/components/Svgs";
+import { FooterLogo } from "../../Svgs";
 import React from "react";
 import { MdEmail } from "react-icons/md";
 import { ImFacebook } from "react-icons/im";

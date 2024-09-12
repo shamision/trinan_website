@@ -1,5 +1,5 @@
-import ServicePage from "@/components/Sections/Services/ServicePage";
-import { servicesData } from '@/components/Sections/Services/ServiceData';
+import ServicePage from "../../../components/Sections/Services/ServicePage";
+import { servicesData } from '../../../components/Sections/Services/ServiceData';
 
 export async function generateStaticParams() {
   return servicesData.map(service => ({

@@ -3,7 +3,7 @@ import {
   SheetClose,
   SheetContent,
   SheetTrigger
-} from "@/components/ui/sheet";
+} from "../ui/sheet";
 import React from "react";
 
 const MenuMobile = () => {

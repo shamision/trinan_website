@@ -1,6 +1,6 @@
 "use client"
 
-import { DetailCard1, DetailCard2, DetailCard3 } from "@/components/Svgs"
+import { DetailCard1, DetailCard2, DetailCard3 } from "../../Svgs"
 import React from "react"
 import { DetailCard } from "./Card"
 

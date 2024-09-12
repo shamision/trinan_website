@@ -135,7 +135,7 @@ export const Team = () => {
                   <p className='text-sm'>{member.position}</p>
               </div>
               <button 
-                className='h-fit items-end bg-[#111B47] p-4 text-white hover:bg-[#5372FC] rounded-full'
+                className='h-fit items-end bg-blue-900 p-4 text-white hover:bg-[#5372FC] rounded-full'
                 onClick={() => setSelectedMember(member)}
               >
                 <FaPlus />

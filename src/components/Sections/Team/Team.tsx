@@ -3,65 +3,68 @@
 import React, { useState, useEffect } from "react"
 import Image from "next/image"
 import { FaArrowLeft, FaPlus, FaTimes, FaArrowRight } from 'react-icons/fa';
+import TeamMemberFormPopup from "./TeamMemberFormPopup";
+import { MdDelete } from "react-icons/md";
+import { FaEdit } from "react-icons/fa";
+import EditTeamMemberFormPopup from "./EditTeamMemberFormPopup";
 
 
-const teamMembers = [
-  {
-    image: "/pexels-divinetechygirl-1181519.jpg",
-    alt: "Member 1",
-    name: "Olivia Mitchell",
-    position: "FOUNDER1",
-    description: "A marketing manager specializing in digital strategies and brand growth. She excels in content creation, social media, and SEO."
-  },
-  {
-    image: "/pexels-olly-3769021.jpg",
-    alt: "Member 2",
-    name: "Sophia Ramirez",
-    position: "CEO2",
-    description: "A marketing manager specializing in digital strategies and brand growth. She excels in content creation, social media, and SEO."
-  },
-  {
-    image: "/pexels-mwabonje-2033447.jpg",
-    alt: "Member 3",
-    name: "Ethan Collins",
-    position: "CTO3",
-    description: "A marketing manager specializing in digital strategies and brand growth. She excels in content creation, social media, and SEO."
-  },
-  {
-    image: "/pexels-mwabonje-2033447.jpg",
-    alt: "Member 3",
-    name: "Ethan Collins",
-    position: "CTO4",
-    description: "A marketing manager specializing in digital strategies and brand growth. She excels in content creation, social media, and SEO."
-  },
-  {
-    image: "/pexels-olly-3769021.jpg",
-    alt: "Member 2",
-    name: "Sophia Ramirez",
-    position: "CEO5",
-    description: "A marketing manager specializing in digital strategies and brand growth. She excels in content creation, social media, and SEO."
-  },
-  {
-    image: "/pexels-mwabonje-2033447.jpg",
-    alt: "Member 3",
-    name: "Ethan Collins",
-    position: "CTO6",
-    description: "A marketing manager specializing in digital strategies and brand growth. She excels in content creation, social media, and SEO."
-  },
-  {
-    image: "/pexels-olly-3769021.jpg",
-    alt: "Member 2",
-    name: "Sophia Ramirez",
-    position: "CEO7",
-    description: "A marketing manager specializing in digital strategies and brand growth. She excels in content creation, social media, and SEO."
-  },
-  // Add more members here
-]
+// const teamMembers = [
+//   {
+//     image: "/pexels-divinetechygirl-1181519.jpg",
+//     name: "Olivia Mitchell",
+//     position: "FOUNDER1",
+//     description: "A marketing manager specializing in digital strategies and brand growth. She excels in content creation, social media, and SEO."
+//   },
+//   {
+//     image: "/pexels-olly-3769021.jpg",
+//     name: "Sophia Ramirez",
+//     position: "CEO2",
+//     description: "A marketing manager specializing in digital strategies and brand growth. She excels in content creation, social media, and SEO."
+//   },
+//   {
+//     image: "/pexels-mwabonje-2033447.jpg",
+//     name: "Ethan Collins",
+//     position: "CTO3",
+//     description: "A marketing manager specializing in digital strategies and brand growth. She excels in content creation, social media, and SEO."
+//   },
+//   {
+//     image: "/pexels-mwabonje-2033447.jpg",
+//     name: "Ethan Collins",
+//     position: "CTO4",
+//     description: "A marketing manager specializing in digital strategies and brand growth. She excels in content creation, social media, and SEO."
+//   },
+//   {
+//     image: "/pexels-olly-3769021.jpg",
+//     name: "Sophia Ramirez",
+//     position: "CEO5",
+//     description: "A marketing manager specializing in digital strategies and brand growth. She excels in content creation, social media, and SEO."
+//   },
+//   {
+//     image: "/pexels-mwabonje-2033447.jpg",
+//     name: "Ethan Collins",
+//     position: "CTO6",
+//     description: "A marketing manager specializing in digital strategies and brand growth. She excels in content creation, social media, and SEO."
+//   },
+//   {
+//     image: "/pexels-olly-3769021.jpg",
+//     name: "Sophia Ramirez",
+//     position: "CEO7",
+//     description: "A marketing manager specializing in digital strategies and brand growth. She excels in content creation, social media, and SEO."
+//   },
+//   // Add more members here
+// ]
 
-export const Team = () => {
+export const Team: React.FC<{TeamMembersData: any; session: any}> = ({TeamMembersData, session}) => {
+  const [TeamMembers, setTeamMembers] = useState(TeamMembersData || []);
   const [visibleMemberIndex, setVisibleMemberIndex] = useState(0);
   const [selectedMember, setSelectedMember] = useState(null);
   const [visibleMembersCount, setVisibleMembersCount] = useState(3);
+  const [isEditPopupOpen, setIsEditPopupOpen] = useState(false);
+  const [selectedTeamMember, setSelectedTeamMember] = useState(null);
+
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const updateVisibleMembersCount = () => {
     if (window.innerWidth >= 1252) {
@@ -83,19 +86,62 @@ export const Team = () => {
   }, []);
 
   const handleNext = () => {
-    setVisibleMemberIndex((prevIndex) => (prevIndex + 1) % teamMembers.length);
+    setVisibleMemberIndex((prevIndex) => (prevIndex + 1) % TeamMembers.length);
   };
 
   const handlePrev = () => {
-    setVisibleMemberIndex((prevIndex) => (prevIndex - 1 + teamMembers.length) % teamMembers.length);
+    setVisibleMemberIndex((prevIndex) => (prevIndex - 1 + TeamMembers.length) % TeamMembers.length);
   };
 
   const getVisibleMembers = () => {
-    return teamMembers.slice(visibleMemberIndex, visibleMemberIndex + visibleMembersCount).concat(
-      teamMembers.slice(0, Math.max(0, visibleMemberIndex + visibleMembersCount - teamMembers.length))
+    return TeamMembers.slice(visibleMemberIndex, visibleMemberIndex + visibleMembersCount).concat(
+      TeamMembers.slice(0, Math.max(0, visibleMemberIndex + visibleMembersCount - TeamMembers.length))
     );
   };
 
+  const handleNewTeamMember = (newTeamMember: any) => {
+    setTeamMembers((prevTeamMembers) => [newTeamMember, ...prevTeamMembers]);
+  };
+
+  const handleDeleteTeamMember = async (id: string) => {
+    setIsDeleting(true);
+    const confirmed = confirm('Are you sure you want to delete this TeamMember?');
+    if (!confirmed) return;
+
+    try {
+      const response = await fetch('/api/teamMembers', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id }), // Send the TeamMember ID in the request body
+      });
+
+      if (response.ok) {
+        setTeamMembers((prevTeamMembers) => prevTeamMembers.filter(t => t.id !== id));
+      } else {
+        console.error('Failed to delete TeamMember');
+      }
+    } catch (error) {
+      console.error('Error deleting TeamMember:', error);
+    } finally {
+      setIsDeleting(false);
+    }
+  };
+
+  const handleEditTeamMember = (TeamMember: any) => {
+    setSelectedTeamMember(TeamMember);
+    setIsEditPopupOpen(true);
+  };
+
+  const handleSaveEditedTeamMember = (updatedTeamMember: any) => {
+    setTeamMembers((prevTeamMembers) =>
+      prevTeamMembers.map((TeamMember) =>
+        TeamMember.id === updatedTeamMember.id ? updatedTeamMember : TeamMember
+      )
+    );
+    setIsEditPopupOpen(false);
+  };
   return (
     <div className='container m-auto my-24'>
       <div className="w-8/12 mx-auto">
@@ -122,24 +168,47 @@ export const Team = () => {
         {/* Visible Members */}
         <div className='flex gap-24'>
           {getVisibleMembers().map((member, index) => (
-            <div key={index} className='flex shadow-lg hover:shadow-2xl gap-4 hover:gap-8 items-end'>
-              <div className='rounded-lg py-4 pl-4'>
+            <div key={index} className='shadow-lg hover:shadow-2xl'>
+              <div className='rounded-lg p-4'>
                   <Image 
                     src={member.image} 
                     alt={member.name} 
-                    width={250} 
+                    width={150} 
                     height={150}
-                    className="w-[180px] h-[180px]" 
+                    style={{ objectFit: 'cover', objectPosition: 'center' }}
+                    className="w-[500px] h-[200px]" 
                   />
-                  <h3 className='text-xl font-bold mt-4'>{member.name}</h3>
-                  <p className='text-sm'>{member.position}</p>
+                  <div className="flex justify-between">
+                    <div className="flex flex-col">
+                      <h3 className='text-xl font-bold mt-4'>{member.name}</h3>
+                      <p className='text-sm'>{member.position}</p>
+                    </div>
+                    <button 
+                      className='h-fit items-end bg-blue-900 p-4 text-white hover:bg-[#5372FC] rounded-full self-end'
+                      onClick={() => setSelectedMember(member)}
+                    >
+                      <FaPlus />
+                    </button>
+                  </div>
+                  {session?.session && (
+                <div className="flex gap-2 mt-2 justify-center">
+                  <button
+                    onClick={() => handleDeleteTeamMember(member.id)}
+                    disabled={isDeleting}
+                    className={`flex gap-1 items-center text-white bg-red-700 px-4 py-2 rounded-md hover:bg-red-500 ${isDeleting ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  >
+                    <MdDelete /> {isDeleting ? 'Deleting...' : 'Remove'}
+                  </button>
+                  <button
+                    onClick={() => handleEditTeamMember(member)}
+                    className="flex gap-1 items-center bg-green-900 text-white px-4 py-2 rounded-md hover:bg-green-500 transition-colors"
+                  >
+                    <FaEdit /> Edit
+                  </button>
+                </div>
+              )}
+
               </div>
-              <button 
-                className='h-fit items-end bg-blue-900 p-4 text-white hover:bg-[#5372FC] rounded-full'
-                onClick={() => setSelectedMember(member)}
-              >
-                <FaPlus />
-              </button>
             </div>
           ))}
         </div>
@@ -152,6 +221,31 @@ export const Team = () => {
           <FaArrowRight />
         </button>
       </div>
+      {session?.session && (
+        <div className="mt-14 flex justify-center">
+          <button
+            onClick={() => setIsPopupOpen(true)}
+            className="bg-blue-800 text-white py-2 px-4 rounded"
+          >
+            Add a team member
+          </button>
+        </div>
+      )}
+
+      <TeamMemberFormPopup
+        isOpen={isPopupOpen}
+        onClose={() => setIsPopupOpen(false)}
+        onSave={handleNewTeamMember}
+      />
+
+      {selectedTeamMember && (
+        <EditTeamMemberFormPopup
+          isOpen={isEditPopupOpen}
+          onClose={() => setIsEditPopupOpen(false)}
+          onSave={handleSaveEditedTeamMember}
+          teamMember={selectedTeamMember}
+        />
+      )}
 
       {/* Modal */}
       {selectedMember && (

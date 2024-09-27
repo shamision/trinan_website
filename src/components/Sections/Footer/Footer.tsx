@@ -7,7 +7,7 @@ import { ImFacebook } from "react-icons/im";
 import { FaInstagramSquare } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
 
-export const Footer = () => {
+export const Footer = ({session}) => {
   return (
     <section>
       <div className="w-full bg-[#111B47] md:px-[90px] px-6 pb-10">
@@ -24,27 +24,30 @@ export const Footer = () => {
               <li className="font-bold text-[28px] border-b">Home</li>
               <li>Services</li>
               <li>About Us</li>
-              <li>Customers</li>
             </ul>
 
             <ul className="grid gap-y-6 text-[18px] text-center">
               <li className="font-bold text-[28px] border-b">Services</li>
-              <li>Tender writing</li>
-              <li>Bid Management</li>
-              <li>Post-tender analysis</li>
+              <li>Contact Us</li>
+              <li>Customers</li>
             </ul>
 
             <ul className="grid gap-y-6 text-[18px] text-center">
               <li className="font-bold text-[28px] border-b">About</li>
               <li>Team</li>
-              <li>Contact Us</li>
-              <li>Career</li>
+              {session ? ( // Check if session exists
+              <li>
+                <a href="/messages" className="hover:underline">
+                  Messages
+                </a>
+              </li>
+            ) : null}
             </ul>
           </div>
         </div>
       </div>
 
-      <div className="w-full bg-[#E7ECFF]">
+      <div className="w-full bg-neutral-100">
         <div className="container py-4 flex items-center justify-between">
 
           <p className="text-[#111B47] font-medium text-[14px]">

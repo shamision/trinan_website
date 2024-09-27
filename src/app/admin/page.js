@@ -4,7 +4,7 @@ import Home from '../page'
 const admin = () => {
   return (
     <>
-        <Home />
+      <Home />
     </>
   )
 }

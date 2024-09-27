@@ -27,7 +27,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/components/Sections/Services/ServiceCard.tsx", "src/components/Sections/Services/Services.tsx"  ],
+, "src/components/Sections/Services/ServiceCard.tsx", "src/components/Sections/Services/Services.tsx", "src/lib/sendEmail.js", "src/app/layout.js"  ],
   "exclude": [
     "node_modules"
   ]

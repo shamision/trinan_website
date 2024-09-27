@@ -1,0 +1,73 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Service {
+  id             String         @id @default(auto()) @map("_id") @db.ObjectId // Unique ID for each service
+  title          String         // Title of the service
+  description    String         // Full description of the service
+  summary        String         // Short description or summary of the service
+  procedure      String         // Procedure for service delivery
+  serviceImages  String[]       // Array of image URLs for the service gallery
+  pastProjects   PastProject[]  // List of past projects (each with its own images and description)
+  createdAt      DateTime       @default(now()) // Timestamp for when the service is created
+  updatedAt      DateTime       @updatedAt      // Automatically updated timestamp
+}
+
+model PastProject {  
+  id              String         @id @default(auto()) @map("_id") @db.ObjectId
+  title           String         // Title of the past project
+  description     String         // Description of the past project
+  projectImages   String[]       // Array of image URLs for the project's image gallery
+  serviceId       String         @db.ObjectId    // Foreign key to the related service
+  service         Service        @relation(fields: [serviceId], references: [id]) // Relation to Service model
+  createdAt       DateTime       @default(now()) // Timestamp for when the past project is created
+  updatedAt       DateTime       @updatedAt      // Automatically updated timestamp
+}
+
+model Testimonial {
+  id          String         @id @default(auto()) @map("_id") @db.ObjectId
+  rating      Int            // Rating out of 5
+  text        String         // Testimonial text
+  name        String         // Name of the person providing the testimonial
+  title       String         // Title or position of the person
+  imgSrc      String         // Path to the image source
+  createdAt   DateTime       @default(now()) // Timestamp for when the testimonial is created
+  updatedAt   DateTime       @updatedAt      // Automatically updated timestamp
+}
+
+model TeamMember {
+  id          String         @id @default(auto()) @map("_id") @db.ObjectId
+  image       String         // Path to the team member's image
+  name        String         // Name of the team member
+  position    String         // Position or role (e.g., CEO, CTO)
+  description String         // A short description of their expertise or role
+  createdAt   DateTime       @default(now()) // Timestamp for when the team member is created
+  updatedAt   DateTime       @updatedAt      // Automatically updated timestamp
+}
+
+model Sponsors {
+  id          String         @id @default(auto()) @map("_id") @db.ObjectId
+  image       String         // Path to the sponsor's image logo
+  name        String         // Name of the sponsor
+  createdAt   DateTime       @default(now()) // Timestamp for when the sponsor is created
+  updatedAt   DateTime       @updatedAt      // Automatically updated timestamp
+}
+
+model ContactMessage {
+  id          String         @id @default(auto()) @map("_id") @db.ObjectId // Unique ID for each message
+  name        String         // Name of the person contacting
+  email       String         // Email of the person contacting
+  phone       String         // Phone number of the person contacting
+  message     String         // The actual message sent by the person
+  createdAt   DateTime       @default(now()) // Timestamp for when the message is created
+  updatedAt   DateTime       @updatedAt      // Automatically updated timestamp
+}

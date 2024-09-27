@@ -1,60 +1,71 @@
-'use client'
+//   const testimonials = [
+//     {
+//       rating: 5,
+//       text: 'Impressed by their dedication! Their innovative strategies and personalized approach set them apart. They helped us achieve our goals with ease.',
+//       name: 'Stefan Ball',
+//       title: 'Operations Director',
+//       imgSrc: '/pexels-mwabonje-2033447.jpg',
+//     },
+//     {
+//       rating: 5,
+//       text: 'Thrilled with the outcome! Their team\'s professionalism and commitment to excellence are unmatched. They delivered results that exceeded our expectations.',
+//       name: 'Alexander Barr',
+//       title: 'Sales Manager',
+//       imgSrc: '/pexels-olly-3769021.jpg',
+//     },
+//     {
+//       rating: 5,
+//       text: 'Incredible results! Their team\'s expertise propelled our business to new heights. Highly recommend their services for anyone serious about success.',
+//       name: 'Safaa Sampson',
+//       title: 'Founder & CEO',
+//       imgSrc: '/pexels-olly-3769021.jpg',
+//     },
+//     {
+//       rating: 5,
+//       text: 'Thrilled with the outcome! Their team\'s professionalism and commitment to excellence are unmatched. They delivered results that exceeded our expectations.',
+//       name: 'iman',
+//       title: 'Sales Manager',
+//       imgSrc: '/pexels-mwabonje-2033447.jpg',
+//     },
+//     {
+//       rating: 5,
+//       text: 'Incredible results! Their team\'s expertise propelled our business to new heights. Highly recommend their services for anyone serious about success.',
+//       name: 'gogo',
+//       title: 'Founder & CEO',
+//       imgSrc: '/pexels-mwabonje-2033447.jpg',
+//     },
+//   ];
+
+
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import { FaStar, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import TestimonialFormPopup from './TestimonialFormPopup';
+import { MdDelete } from "react-icons/md";
+import { FaEdit } from "react-icons/fa";
+import EditTestimonialFormPopup from './EditTestimonialFormPopup'; // Import the edit form component
 
-const Testimonials: React.FC = () => {
-  const testimonials = [
-    {
-      rating: 5,
-      text: 'Impressed by their dedication! Their innovative strategies and personalized approach set them apart. They helped us achieve our goals with ease.',
-      name: 'Stefan Ball',
-      title: 'Operations Director',
-      imgSrc: '/pexels-mwabonje-2033447.jpg',
-    },
-    {
-      rating: 5,
-      text: 'Thrilled with the outcome! Their team\'s professionalism and commitment to excellence are unmatched. They delivered results that exceeded our expectations.',
-      name: 'Alexander Barr',
-      title: 'Sales Manager',
-      imgSrc: '/pexels-olly-3769021.jpg',
-    },
-    {
-      rating: 5,
-      text: 'Incredible results! Their team\'s expertise propelled our business to new heights. Highly recommend their services for anyone serious about success.',
-      name: 'Safaa Sampson',
-      title: 'Founder & CEO',
-      imgSrc: '/pexels-olly-3769021.jpg',
-    },
-    {
-      rating: 5,
-      text: 'Thrilled with the outcome! Their team\'s professionalism and commitment to excellence are unmatched. They delivered results that exceeded our expectations.',
-      name: 'iman',
-      title: 'Sales Manager',
-      imgSrc: '/pexels-mwabonje-2033447.jpg',
-    },
-    {
-      rating: 5,
-      text: 'Incredible results! Their team\'s expertise propelled our business to new heights. Highly recommend their services for anyone serious about success.',
-      name: 'gogo',
-      title: 'Founder & CEO',
-      imgSrc: '/pexels-mwabonje-2033447.jpg',
-    },
-  ];
-
+const Testimonials: React.FC<{ testimonialsData: any[]; session: any }> = ({ testimonialsData, session }) => {
+  const [testimonials, setTestimonials] = useState(testimonialsData || []);
   const [current, setCurrent] = useState(0);
   const [visibleMembersCount, setVisibleMembersCount] = useState(1);
-
-  const updateVisibleMembersCount = () => {
-    if (window.innerWidth >= 1252) {
-      setVisibleMembersCount(3);
-    } else if (window.innerWidth >= 940) {
-      setVisibleMembersCount(2);
-    } else {
-      setVisibleMembersCount(1);
-    }
-  };
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isEditPopupOpen, setIsEditPopupOpen] = useState(false);
+  const [selectedTestimonial, setSelectedTestimonial] = useState(null);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
+    const updateVisibleMembersCount = () => {
+      if (window.innerWidth >= 1252) {
+        setVisibleMembersCount(3);
+      } else if (window.innerWidth >= 940) {
+        setVisibleMembersCount(2);
+      } else {
+        setVisibleMembersCount(1);
+      }
+    };
+
     updateVisibleMembersCount();
     window.addEventListener('resize', updateVisibleMembersCount);
     return () => window.removeEventListener('resize', updateVisibleMembersCount);
@@ -68,9 +79,56 @@ const Testimonials: React.FC = () => {
     setCurrent((current - visibleMembersCount + testimonials.length) % testimonials.length);
   };
 
-  const displayedTestimonials = testimonials.slice(current, current + visibleMembersCount).concat(
-    testimonials.slice(0, Math.max(0, (current + visibleMembersCount) - testimonials.length))
-  );
+  const displayedTestimonials = testimonials.slice(current, current + visibleMembersCount);
+
+  // Prevent duplication when testimonials are less than visibleMembersCount
+  if (displayedTestimonials.length < visibleMembersCount) {
+    displayedTestimonials.push(...testimonials.slice(0, visibleMembersCount - displayedTestimonials.length));
+  }
+
+  const handleNewTestimonial = (newTestimonial: any) => {
+    setTestimonials((prevTestimonials) => [newTestimonial, ...prevTestimonials]);
+  };
+
+  const handleDeleteTestimonial = async (id: string) => {
+    setIsDeleting(true);
+    const confirmed = confirm('Are you sure you want to delete this testimonial?');
+    if (!confirmed) return;
+
+    try {
+      const response = await fetch('/api/testimonials', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id }), // Send the testimonial ID in the request body
+      });
+
+      if (response.ok) {
+        setTestimonials((prevTestimonials) => prevTestimonials.filter(t => t.id !== id));
+      } else {
+        console.error('Failed to delete testimonial');
+      }
+    } catch (error) {
+      console.error('Error deleting testimonial:', error);
+    } finally {
+      setIsDeleting(false);
+    }
+  };
+
+  const handleEditTestimonial = (testimonial: any) => {
+    setSelectedTestimonial(testimonial);
+    setIsEditPopupOpen(true);
+  };
+
+  const handleSaveEditedTestimonial = (updatedTestimonial: any) => {
+    setTestimonials((prevTestimonials) =>
+      prevTestimonials.map((testimonial) =>
+        testimonial.id === updatedTestimonial.id ? updatedTestimonial : testimonial
+      )
+    );
+    setIsEditPopupOpen(false);
+  };
 
   return (
     <section className="py-24 bg-neutral-100">
@@ -82,7 +140,7 @@ const Testimonials: React.FC = () => {
         </p>
       </div>
       <div className="container relative flex justify-center items-center px-6">
-        <button 
+        <button
           className="absolute left-0 p-2 bg-white rounded-full shadow-md hover:bg-gray-200"
           onClick={prevTestimonial}
         >
@@ -104,10 +162,27 @@ const Testimonials: React.FC = () => {
                   <p className="text-gray-600">{testimonial.title}</p>
                 </div>
               </div>
+              {session?.session && (
+                <div className="flex gap-2 justify-center mt-2 mb-4">
+                  <button
+                    onClick={() => handleDeleteTestimonial(testimonial.id)}
+                    disabled={isDeleting}
+                    className={`flex gap-1 items-center text-white bg-red-700 px-4 py-2 rounded-md hover:bg-red-500 ${isDeleting ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  >
+                    <MdDelete /> {isDeleting ? 'Deleting...' : 'Remove'}
+                  </button>
+                  <button
+                    onClick={() => handleEditTestimonial(testimonial)}
+                    className="flex gap-1 items-center bg-green-900 text-white px-4 py-2 rounded-md hover:bg-green-500 transition-colors"
+                  >
+                    <FaEdit /> Edit
+                  </button>
+                </div>
+              )}
             </div>
           ))}
         </div>
-        <button 
+        <button
           className="absolute right-0 p-2 bg-white rounded-full shadow-md hover:bg-gray-200"
           onClick={nextTestimonial}
         >
@@ -117,13 +192,40 @@ const Testimonials: React.FC = () => {
       <div className="mt-8 flex justify-center">
         <div className="flex space-x-2">
           {Array.from({ length: Math.ceil(testimonials.length / visibleMembersCount) }, (_, index) => (
-            <span 
+            <span
               key={index}
               className={`h-2 w-2 rounded-full ${Math.floor(current / visibleMembersCount) === index ? 'bg-yellow-400' : 'bg-gray-300'}`}
             ></span>
           ))}
         </div>
       </div>
+      {session?.session && (
+        <div className="mt-8 flex justify-center">
+          <button
+            onClick={() => setIsPopupOpen(true)}
+            className="bg-blue-500 text-white py-2 px-4 rounded"
+          >
+            Add Testimonial
+          </button>
+        </div>
+      )}
+
+      {/* Testimonial Form Popup */}
+      <TestimonialFormPopup
+        isOpen={isPopupOpen}
+        onClose={() => setIsPopupOpen(false)}
+        onSave={handleNewTestimonial}
+      />
+
+      {/* Edit Testimonial Form Popup */}
+      {selectedTestimonial && (
+        <EditTestimonialFormPopup
+          isOpen={isEditPopupOpen}
+          onClose={() => setIsEditPopupOpen(false)}
+          onSave={handleSaveEditedTestimonial}
+          testimonial={selectedTestimonial}
+        />
+      )}
     </section>
   );
 };

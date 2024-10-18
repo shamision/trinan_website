@@ -88,7 +88,7 @@ const ServiceCard = ({ service, session }) => {
 
       {isPopupOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white h-[800px] overflow-y-scroll rounded-xl m-6 lg:m-0 w-[800px]">
+          <div className="bg-white h-[90vh] overflow-y-scroll rounded-xl m-6 lg:m-0 w-[800px]">
             <button
               onClick={handleClosePopup}
               className="text-white bg-[#111B47] float-right w-8 h-8 flex items-center justify-center rounded-md m-5"

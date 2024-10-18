@@ -59,8 +59,8 @@ const TeamMemberFormPopup: React.FC<TeamMemberFormPopupProps> = ({ isOpen, onClo
 
   return (
     <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center z-50">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-semibold mb-4">Create Team Member</h2>
+      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md overflow-y-scroll">
+        <h2 className="text-2xl font-semibold mb-4 text-black">Create Team Member</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-gray-700">Name</label>
@@ -69,7 +69,7 @@ const TeamMemberFormPopup: React.FC<TeamMemberFormPopupProps> = ({ isOpen, onClo
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
               required
             />
           </div>
@@ -80,7 +80,7 @@ const TeamMemberFormPopup: React.FC<TeamMemberFormPopupProps> = ({ isOpen, onClo
               name="position"
               value={formData.position}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
               required
             />
           </div>
@@ -90,7 +90,7 @@ const TeamMemberFormPopup: React.FC<TeamMemberFormPopupProps> = ({ isOpen, onClo
               name="description"
               value={formData.description}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
               required
             />
           </div>
@@ -98,7 +98,7 @@ const TeamMemberFormPopup: React.FC<TeamMemberFormPopupProps> = ({ isOpen, onClo
             <label className="block text-gray-700">Image</label>
             <ImageUploader value={[formData.image]} onChange={handleImageChange} />
           </div>
-          <div className="flex justify-end">
+          <div className="flex justify-center mt-14">
             <button
               type="button"
               className="bg-gray-400 text-white py-2 px-4 rounded mr-2"

@@ -1,6 +1,3 @@
-
-
-
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -9,6 +6,7 @@ import TestimonialFormPopup from './TestimonialFormPopup';
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import EditTestimonialFormPopup from './EditTestimonialFormPopup'; // Import the edit form component
+import Image from 'next/image'; // Import the Image component
 
 const Testimonials: React.FC<{ testimonialsData: any[]; session: any }> = ({ testimonialsData, session }) => {
   const [testimonials, setTestimonials] = useState(testimonialsData || []);
@@ -120,7 +118,13 @@ const Testimonials: React.FC<{ testimonialsData: any[]; session: any }> = ({ tes
               </div>
               <p className="text-gray-700 mb-6">{testimonial.text}</p>
               <div className="flex items-center">
-                <img src={testimonial.imgSrc} alt={testimonial.name} className="h-12 w-12 rounded-full mr-4" />
+                <Image 
+                  src={testimonial.imgSrc} 
+                  alt={testimonial.name} 
+                  className="h-12 w-12 rounded-full mr-4" 
+                  width={48} // Specify the width
+                  height={48} // Specify the height
+                />
                 <div>
                   <p className="font-semibold text-black">{testimonial.name}</p>
                   <p className="text-gray-600">{testimonial.title}</p>

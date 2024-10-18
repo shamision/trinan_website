@@ -9,7 +9,7 @@ const Services = async ({ session }) => {
     return (
       <div className="text-center">
         <p className="text-2xl font-bold text-[#111B47]">
-          No services found. Please add some services by clicking the "Add a service?" button.
+          No services found. Please add some services by clicking the &quot;Add a service?&quot; button.
         </p>
       </div>
     );

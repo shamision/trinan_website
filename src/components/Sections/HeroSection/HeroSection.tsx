@@ -1,29 +1,28 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import React, { useState } from "react"
-import { Form } from "../Contact/Form"
+import Image from "next/image";
+import React, { useState } from "react";
+import { Form } from "../Contact/Form";
 
 export const HeroSection = () => {
-  const [isFormVisible, setIsFormVisible] = useState(false) // State to manage form visibility
+  const [isFormVisible, setIsFormVisible] = useState(false); // State to manage form visibility
 
   const handleGetInTouchClick = () => {
-    setIsFormVisible(true)
-  }
+    setIsFormVisible(true);
+  };
 
   const closeForm = () => {
-    setIsFormVisible(false)
-  }
+    setIsFormVisible(false);
+  };
+
   return (
     <>
       <section className="h-screen w-full relative overflow-hidden">
         <Image
           src={"/Const.jpg"}
-          alt="Image"
+          alt="Engineering equipment background"
           fill
-          style={{
-            objectFit: "cover"
-          }}
+          style={{ objectFit: "cover" }}
         />
 
         <div className="absolute flex items-center justify-center z-30 h-full w-full bg-black bg-opacity-70 md:px-0 px-6">
@@ -32,23 +31,23 @@ export const HeroSection = () => {
               Your Trusted Partner in Seamless Supply of Engineering Equipment
             </h1>
             <p className="text-md md:text-lg w-full md:w-2/4 text-white leading-6">
-            The only source for top-tier engineering materials.
-            <br/>reach out to us today to secure the tools and materials you need for your project's success.
+              The only source for top-tier engineering materials.
+              <br /> Reach out to us today to secure the tools and materials you need for your project&apos;s success.
             </p>
             <button
-                onClick={handleGetInTouchClick}
-                className="bg-blue-900 w-fit text-white text-lg md:text-xl font-bold py-2 px-4 rounded-md"
-              >
-                Get in Touch
-              </button>
+              onClick={handleGetInTouchClick}
+              className="bg-blue-900 w-fit text-white text-lg md:text-xl font-bold py-2 px-4 rounded-md"
+            >
+              Get in Touch
+            </button>
           </div>
         </div>
       </section>
       {isFormVisible && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <Form closeForm={closeForm}/>
+          <Form closeForm={closeForm} />
         </div>
       )}
     </>
-  )
-}
+  );
+};

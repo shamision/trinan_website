@@ -1,82 +1,31 @@
-"use client"
 
-import { Service } from "@/components/Sections/Services/Service"
-import { Construction, CookingIcon, Electrical, Electronic, EnergyIcon, EquipmentsIcon, ItIcon, OfficeIcon, Plumbing, SafetyIcon, WaterEquiIcon } from "@/components/Svgs"
-import React from "react"
+import ServiceCard from './ServiceCard';
+import { getServicesData } from '../../../app/actions/getServicesData';
+import AddServiceCard from './addServiceCard';
 
-export const Services = () => {
+const Services = async(session) => {
+  const servicesData = await getServicesData()
+  if (servicesData.length === 0) {
+    return (
+      <>
+      <div className="text-center">
+        <p className="text-2xl font-bold text-[#111B47] text-center">
+          No services found. Please add some services by clicking the "Add a service?" button.
+        </p>
+      </div>
+      </>
+    )
+  }
   return (
-    <section className="h-full w-full relative py-[20px] overflow-hidden bg-white md:px-[90px] px-6">
-      <div className="flex items-center justify-center mt-16 w-full">
-        <div className="w-[765px] mx-auto ">
-          <p className="text-[#111B47] font-bold text-[48px] text-center">
-            Tendering Services
-          </p>
-          <p className="text-[#505F98] text-center text-[18px] mt-[15px]">
-            We offer a comprehensive range of tendering services to help
-            businesses secure lucrative contracts. Our expertise ensures that
-            your bids are competitive, compliant, and strategically crafted to
-            meet the highest standards.
-          </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {servicesData.map(service => (
+            <ServiceCard key={service.id} service={service} session= {session} />
+          ))}
+          {session.session ? (
+            <AddServiceCard />
+          ) : null}
         </div>
-      </div>
-      <div className=" w-full flex flex-wrap text-[#111B47] mt-[30px] justify-center gap-y-12 md:gap-x-4">
-        <Service
-          icon={<Construction />}
-          title="Supply of Construction Materials"
-          description="Products include cement, bricks, steel, roofing materials, aggregates, and timber etc."
-        />
-        <Service
-          icon={<Plumbing />}
-          title="Supply of Plumbing Materials"
-          description="fittings, valves, pumps, and fixtures for residential and commercial plumbing systems. Solutions for water conservation and efficient plumbing designs."
-        />
-        <Service
-          icon={<Electrical />}
-          title="Supply of Electrical Materials"
-          description="Wiring, cables, circuit breakers, switchboards, and transformers. Solutions for lighting, power distribution, and renewable energy integration."
-        />
-        <Service
-          icon={<Electronic />}
-          title="Supply of Electronic Materials"
-          description="Resistors, capacitors, semiconductors, connectors, Equipment for telecommunications, computing, and industrial electronics."
-        />
-        <Service
-          icon={<CookingIcon />}
-          title="Supply of Various Cooking Stoves"
-          description="Gas, electric, and solid fuel stoves suitable for household and industrial use."
-        />
-        <Service
-          icon={<EquipmentsIcon />}
-          title="Supply of TVET School, Tools, Equipment"
-          description="Vocational training tools and machines for various trades. Educational kits and consumables for technical training programs."
-         />
-         <Service
-          icon={<ItIcon />}
-          title="Supply of IT Equipment"
-          description="Computers, servers, networking devices, and peripherals. Solutions for data management, cybersecurity, and cloud integration."
-         />
-         <Service
-          icon={<OfficeIcon />}
-          title="Supply of Office and Stationery Products"
-          description="Office furniture, printing supplies, paper products, and organizational tools. Custom solutions for workspace efficiency and branding."
-         />
-         <Service
-          icon={<SafetyIcon />}
-          title="Supply of Personal Protective Equipment"
-          description="Protective clothing, helmets, gloves, and eyewear for workplace safety. Solutions for hazard prevention in various industries."
-         />
-         <Service
-          icon={<EnergyIcon />}
-          title="Supply of Renewable Energy Solutions"
-          description="Solar panels, wind turbines, and energy storage systems. Consultancy and installation services for sustainable energy projects."
-         />
-         <Service
-          icon={<WaterEquiIcon />}
-          title="Supply of Water and Sanitation Equipment"
-          description="Water treatment systems, filtration units, and sanitation facilities. Solutions for clean water access and waste management."
-         />
-      </div>
-    </section>
-  )
-}
+  );
+};
+
+export default Services;

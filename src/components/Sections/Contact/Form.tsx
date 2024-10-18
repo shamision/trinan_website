@@ -39,7 +39,7 @@ export const Form = ({ closeForm }) => {
   };
 
   return (
-    <div className="bg-white h-fit rounded-lg m-6 lg:m-0 w-[800px]">
+    <div className="bg-white rounded-lg m-6 lg:m-0 w-[800px] h-[90vh] overflow-y-scroll">
       <button
         onClick={closeForm}
         className="text-white bg-[#111B47] w-8 h-8 float-right flex items-center justify-center rounded-md m-5"

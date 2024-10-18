@@ -9,51 +9,6 @@ import { FaEdit } from "react-icons/fa";
 import EditTeamMemberFormPopup from "./EditTeamMemberFormPopup";
 
 
-// const teamMembers = [
-//   {
-//     image: "/pexels-divinetechygirl-1181519.jpg",
-//     name: "Olivia Mitchell",
-//     position: "FOUNDER1",
-//     description: "A marketing manager specializing in digital strategies and brand growth. She excels in content creation, social media, and SEO."
-//   },
-//   {
-//     image: "/pexels-olly-3769021.jpg",
-//     name: "Sophia Ramirez",
-//     position: "CEO2",
-//     description: "A marketing manager specializing in digital strategies and brand growth. She excels in content creation, social media, and SEO."
-//   },
-//   {
-//     image: "/pexels-mwabonje-2033447.jpg",
-//     name: "Ethan Collins",
-//     position: "CTO3",
-//     description: "A marketing manager specializing in digital strategies and brand growth. She excels in content creation, social media, and SEO."
-//   },
-//   {
-//     image: "/pexels-mwabonje-2033447.jpg",
-//     name: "Ethan Collins",
-//     position: "CTO4",
-//     description: "A marketing manager specializing in digital strategies and brand growth. She excels in content creation, social media, and SEO."
-//   },
-//   {
-//     image: "/pexels-olly-3769021.jpg",
-//     name: "Sophia Ramirez",
-//     position: "CEO5",
-//     description: "A marketing manager specializing in digital strategies and brand growth. She excels in content creation, social media, and SEO."
-//   },
-//   {
-//     image: "/pexels-mwabonje-2033447.jpg",
-//     name: "Ethan Collins",
-//     position: "CTO6",
-//     description: "A marketing manager specializing in digital strategies and brand growth. She excels in content creation, social media, and SEO."
-//   },
-//   {
-//     image: "/pexels-olly-3769021.jpg",
-//     name: "Sophia Ramirez",
-//     position: "CEO7",
-//     description: "A marketing manager specializing in digital strategies and brand growth. She excels in content creation, social media, and SEO."
-//   },
-//   // Add more members here
-// ]
 
 export const Team: React.FC<{TeamMembersData: any; session: any}> = ({TeamMembersData, session}) => {
   const [TeamMembers, setTeamMembers] = useState(TeamMembersData || []);
@@ -180,8 +135,8 @@ export const Team: React.FC<{TeamMembersData: any; session: any}> = ({TeamMember
                   />
                   <div className="flex justify-between">
                     <div className="flex flex-col">
-                      <h3 className='text-xl font-bold mt-4'>{member.name}</h3>
-                      <p className='text-sm'>{member.position}</p>
+                      <h3 className='text-xl font-bold mt-4 text-black'>{member.name}</h3>
+                      <p className='text-sm text-black'>{member.position}</p>
                     </div>
                     <button 
                       className='h-fit items-end bg-blue-900 p-4 text-white hover:bg-[#5372FC] rounded-full self-end'
